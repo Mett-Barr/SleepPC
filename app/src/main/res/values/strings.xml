@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sleep PC</string>
+
+
+    <string name="sc_short_label">Sleep PC</string>
+    <string name="sc_long_label">Sleep PC Service</string>
+    <string name="sc_disabled_message">disabled</string>
+
+
+</resources>
