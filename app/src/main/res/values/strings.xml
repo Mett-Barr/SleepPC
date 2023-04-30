@@ -1,10 +1,20 @@
 <resources>
-    <string name="app_name">Sleep PC</string>
+    <string name="app_name">PC Control</string>
+<!--    <string name="app_name">Sleep PC</string>-->
 
 
     <string name="sc_short_label">Sleep PC</string>
     <string name="sc_long_label">Sleep PC Service</string>
     <string name="sc_disabled_message">disabled</string>
 
+    <string name="unlock_short_label">Unlock PC</string>
+    <string name="unlock_long_label">Unlock PC Service</string>
+    <string name="unlock_disabled_message">disabled</string>
+
+
+    <string name="sleep_pc">sleep pc</string>
+    <string name="wake_pc">wake pc</string>
+    <string name="unlock_pc">unlock pc</string>
+    <string name="wake_and_unlock_pc">wake and unlock pc</string>
 
 </resources>

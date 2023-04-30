@@ -2,33 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/bedtime_fill0_wght400_grad0_opsz48"
+        android:icon="@drawable/computer_fill0_wght400_grad0_opsz48"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.SleepPC"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <service
+            android:name=".service.UnlockPcService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity
+            android:name=".ShortcutActivity"
+            android:exported="false"
+            android:noHistory="true"
+            android:theme="@style/Theme.Transparent" />
         <activity
             android:name=".TransparentActivity"
             android:exported="false"
             android:theme="@style/Theme.Transparent">
-
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
 
         <service
-            android:name=".SleepPcService"
+            android:name=".service.SleepPcService"
             android:enabled="true"
             android:exported="true">
             <meta-data
@@ -51,6 +62,14 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
+
+        <receiver
+            android:name=".network.test.MyShortcutReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

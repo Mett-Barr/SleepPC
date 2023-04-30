@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
-        android:shortcutId="compose"
         android:enabled="true"
-        android:icon="@drawable/computer_fill0_wght400_grad0_opsz48"
-        android:shortcutShortLabel="@string/sc_short_label"
+        android:icon="@drawable/bedtime_fill0_wght400_grad0_opsz48"
+        android:shortcutDisabledMessage="@string/sc_disabled_message"
+        android:shortcutId="compose"
         android:shortcutLongLabel="@string/sc_long_label"
-        android:shortcutDisabledMessage="@string/sc_disabled_message">
+        android:shortcutShortLabel="@string/sc_short_label">
         <intent
             android:action="com.example.sleeppc.test"
-            android:targetPackage="com.example.sleeppc"
-            android:targetClass="com.example.sleeppc.TransparentActivity" />
+            android:targetClass="com.example.sleeppc.ShortcutActivity"
+            android:targetPackage="com.example.sleeppc">
+            <extra
+                android:name="shortcut_data"
+                android:value="sleep_pc" />
+        </intent>
         <!-- If your shortcut is associated with multiple intents, include them
              here. The last intent in the list determines what the user sees when
              they launch this shortcut. -->
     </shortcut>
     <!-- Specify more shortcuts here. -->
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/power_settings_new_black_48dp"
+        android:shortcutDisabledMessage="@string/sc_disabled_message"
+        android:shortcutId="unlock"
+        android:shortcutLongLabel="@string/unlock_long_label"
+        android:shortcutShortLabel="@string/unlock_short_label">
+        <intent
+            android:action="com.example.sleeppc.test"
+            android:targetClass="com.example.sleeppc.ShortcutActivity"
+            android:targetPackage="com.example.sleeppc">
+            <extra
+                android:name="shortcut_data"
+                android:value="unlock_pc" />
+        </intent>
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+    </shortcut>
+
 </shortcuts>
 
 
-
-<!--<categories android:name="android.shortcut.conversation" />-->
-<!--<capability-binding android:key="actions.intent.CREATE_MESSAGE" />-->
+    <!--<categories android:name="android.shortcut.conversation" />-->
+    <!--<capability-binding android:key="actions.intent.CREATE_MESSAGE" />-->

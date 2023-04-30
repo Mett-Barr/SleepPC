@@ -8,6 +8,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 class RetrofitClient(val context: Context, val ip: String) {
 
@@ -65,11 +66,40 @@ class RetrofitClient(val context: Context, val ip: String) {
 //        })
 
 
+
+        suspend fun controlMedia(mediaCommand: MediaCommand) {
+            try {
+                apiService.sendMediaControlCommand(mediaCommand.command)
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Media control: ${mediaCommand.command} done", Toast.LENGTH_SHORT).show()
+                }
+            } catch (httpException: HttpException) {
+                Log.d("!!!", "Media control: Handle error")
+            } catch (t: Throwable) {
+                Log.d("!!!", "Media control: onFailure $ip")
+                Log.d("!!!", t.toString())
+
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Media control: ${mediaCommand.command} failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
     }
 }
 
+enum class MediaCommand(val command: String) {
+    PLAY_PAUSE("playpause"),
+    VOLUME_UP("volumeup"),
+    VOLUME_DOWN("volumedown"),
+    NEXT("next"),
+    PREVIOUS("previous")
+}
 
 interface ApiService {
     @POST("/sleep")
     suspend fun sendSleepCommand(): Response<Void>
+
+    @POST("/media-control")
+    suspend fun sendMediaControlCommand(@Query("command") command: String): Response<Void>
 }
