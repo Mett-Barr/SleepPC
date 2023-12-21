@@ -34,7 +34,7 @@ fun Context.createNotification(
     channelName: String = "My Service Channel"
 ): Notification {
     val notificationBuilder = NotificationCompat.Builder(this, channelId)
-        .setSmallIcon(R.drawable.computer_fill0_wght400_grad0_opsz48)
+        .setSmallIcon(R.drawable.ic_computer_light_mode)
         .setContentTitle(contentTitle)
         .setContentText(contentText)
         .setPriority(priority)

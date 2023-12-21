@@ -29,8 +29,8 @@ suspend fun Context.wakeOnLan() {
     bindProcessToWifi()
     sendWakeOnLanPacket()
 
-    delay(500)
-    vibrate()
+//    delay(500)
+//    vibrate()
 }
 
 const val ETHERNET_MAC = "04-42-1A-24-F6-53"

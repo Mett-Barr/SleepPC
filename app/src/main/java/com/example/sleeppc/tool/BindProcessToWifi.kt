@@ -7,7 +7,7 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 
 // Context 擴展函數
-fun Context.bindProcessToWifi() {
+fun Context.bindProcessToWifi(afterConnect: () -> Unit = {}) {
     val connMgr = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val networkRequest = NetworkRequest.Builder()
         .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
@@ -17,6 +17,7 @@ fun Context.bindProcessToWifi() {
         override fun onAvailable(network: Network) {
             super.onAvailable(network)
             connMgr.bindProcessToNetwork(network)
+            afterConnect()
         }
     }
 

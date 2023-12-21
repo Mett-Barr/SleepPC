@@ -2,7 +2,7 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/bedtime_fill0_wght400_grad0_opsz48"
+        android:icon="@drawable/ic_bedtime_light_mode"
         android:shortcutDisabledMessage="@string/sc_disabled_message"
         android:shortcutId="compose"
         android:shortcutLongLabel="@string/sc_long_label"
@@ -23,7 +23,7 @@
 
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/power_settings_new_black_48dp"
+        android:icon="@drawable/ic_power_settings_light_mode"
         android:shortcutDisabledMessage="@string/sc_disabled_message"
         android:shortcutId="unlock"
         android:shortcutLongLabel="@string/unlock_long_label"
